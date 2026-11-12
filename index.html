@@ -1,1 +1,374 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IVAN PRODUCER | Login</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+<div class="background">
+
+    <!-- HEADER -->
+    <header class="top-header">
+
+        <div class="tech-logo html">
+            <i class="fa-brands fa-html5"></i>
+            <span>HTML</span>
+        </div>
+
+        <div class="tech-logo css">
+            <i class="fa-brands fa-css3-alt"></i>
+            <span>CSS</span>
+        </div>
+
+        <div class="tech-logo js">
+            <i class="fa-brands fa-js"></i>
+            <span>JS</span>
+        </div>
+
+        <div class="tech-logo php">
+            <i class="fa-brands fa-php"></i>
+            <span>PHP</span>
+        </div>
+
+        <div class="mysql-logo">
+            <i class="fa-solid fa-database"></i>
+            <span>MySQL</span>
+        </div>
+
+        <div class="brand">
+            <div>IVAN</div>
+            <span>PRODUCER</span>
+        </div>
+
+    </header>
+
+
+    <!-- CONTENIDO -->
+    <main class="main-container">
+
+        <!-- CÓDIGO -->
+        <section class="code-window">
+
+            <div class="window-header">
+
+                <div class="window-buttons">
+                    <span class="red"></span>
+                    <span class="yellow"></span>
+                    <span class="green"></span>
+                </div>
+
+                <div class="file-tab">
+                    <i class="fa-brands fa-php"></i>
+                    auth.php
+                </div>
+
+                <div class="plus">+</div>
+
+            </div>
+
+            <div class="code-content">
+
+<pre><span class="pink">&lt;?php</span>
+
+<span class="cyan">session_start</span>();
+
+<span class="pink">require</span> <span class="yellow">'db.php'</span>;
+
+<span class="pink">if</span> ($_SERVER[<span class="yellow">'REQUEST_METHOD'</span>] === <span class="yellow">'POST'</span>) {
+
+    $email = <span class="cyan">trim</span>($_POST[<span class="yellow">'email'</span>]);
+    $password = $_POST[<span class="yellow">'password'</span>];
+
+    <span class="pink">if</span> (<span class="cyan">isset</span>($_POST[<span class="yellow">'login'</span>])) {
+
+        $stmt = $pdo-><span class="cyan">prepare</span>(
+            <span class="yellow">"SELECT * FROM users
+            WHERE email = ?"</span>
+        );
+
+        $stmt-><span class="cyan">execute</span>([$email]);
+
+        $user = $stmt-><span class="cyan">fetch</span>(
+            PDO::FETCH_ASSOC
+        );
+
+        <span class="pink">if</span> ($user) {
+
+            $_SESSION[<span class="yellow">'user'</span>] = $user;
+
+            <span class="cyan">header</span>(
+                <span class="yellow">'Location: dashboard.php'</span>
+            );
+
+            <span class="pink">exit</span>();
+
+        } <span class="pink">else</span> {
+
+            $error =
+            <span class="yellow">'Email o contraseña incorrectos'</span>;
+        }
+    }
+}
+
+<span class="pink">?&gt;</span>
+
+
+<span class="purple">&lt;!DOCTYPE html&gt;</span>
+
+<span class="cyan">&lt;html lang="es"&gt;</span>
+
+<span class="cyan">&lt;head&gt;</span>
+
+    <span class="pink">&lt;meta</span>
+    charset=<span class="yellow">"UTF-8"</span><span class="pink">&gt;</span>
+
+    <span class="pink">&lt;title&gt;</span>
+    Login & Register
+    <span class="pink">&lt;/title&gt;</span>
+
+<span class="cyan">&lt;/head&gt;</span>
+
+<span class="cyan">&lt;body&gt;</span>
+
+    <span class="pink">&lt;div</span>
+    class=<span class="yellow">"auth-container"</span><span class="pink">&gt;</span>
+
+        Login / Register
+
+    <span class="pink">&lt;/div&gt;</span>
+
+<span class="cyan">&lt;/body&gt;</span>
+
+<span class="cyan">&lt;/html&gt;</span></pre>
+
+            </div>
+
+        </section>
+
+
+        <!-- AUTENTICACIÓN -->
+        <section class="auth-area">
+
+            <!-- LOGIN -->
+            <div class="auth-card">
+
+                <div class="account-header">
+
+                    <div class="user-icon">
+                        <i class="fa-solid fa-user"></i>
+                        <i class="fa-solid fa-user-plus"></i>
+                    </div>
+
+                    <div>
+                        <h1>User Account</h1>
+                        <p>Login or Register to continue</p>
+                    </div>
+
+                </div>
+
+
+                <!-- TABS -->
+                <div class="tabs">
+
+                    <button
+                        id="loginTab"
+                        class="tab active"
+                        onclick="showLogin()">
+
+                        <i class="fa-solid fa-user"></i>
+                        Login
+
+                    </button>
+
+                    <button
+                        id="registerTab"
+                        class="tab"
+                        onclick="showRegister()">
+
+                        <i class="fa-solid fa-user-plus"></i>
+                        Register
+
+                    </button>
+
+                </div>
+
+
+                <!-- LOGIN FORM -->
+                <form id="loginForm" class="form">
+
+                    <div class="input-box">
+
+                        <i class="fa-regular fa-envelope"></i>
+
+                        <input
+                            type="email"
+                            id="loginEmail"
+                            placeholder="Email Address"
+                            required>
+
+                    </div>
+
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            placeholder="Password"
+                            required>
+
+                        <i
+                            class="fa-regular fa-eye password-toggle"
+                            onclick="togglePassword('loginPassword', this)">
+                        </i>
+
+                    </div>
+
+
+                    <button type="submit" class="main-button">
+
+                        <i class="fa-solid fa-right-to-bracket"></i>
+
+                        Login
+
+                    </button>
+
+                </form>
+
+
+                <div class="or">
+
+                    <span></span>
+                    OR
+                    <span></span>
+
+                </div>
+
+
+                <!-- SOCIAL -->
+                <button class="social google">
+
+                    <i class="fa-brands fa-google"></i>
+
+                    Continue with Google
+
+                </button>
+
+
+                <button class="social facebook">
+
+                    <i class="fa-brands fa-facebook"></i>
+
+                    Continue with Facebook
+
+                </button>
+
+            </div>
+
+
+            <!-- REGISTER -->
+            <div
+                id="registerSection"
+                class="register-card">
+
+                <div class="register-title">
+
+                    <h2>Create Your Account</h2>
+
+                    <p>Join us today!</p>
+
+                </div>
+
+
+                <form id="registerForm">
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Full Name"
+                            required>
+
+                    </div>
+
+
+                    <div class="input-box">
+
+                        <i class="fa-regular fa-envelope"></i>
+
+                        <input
+                            type="email"
+                            id="registerEmail"
+                            placeholder="Email Address"
+                            required>
+
+                    </div>
+
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            id="registerPassword"
+                            placeholder="Password"
+                            required>
+
+                    </div>
+
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="Confirm Password"
+                            required>
+
+                    </div>
+
+
+                    <button type="submit" class="register-button">
+
+                        <i class="fa-solid fa-user-plus"></i>
+
+                        Register
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
