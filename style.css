@@ -1,1 +1,618 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #020617;
+    color: white;
+    min-height: 100vh;
+}
+
+.background {
+    min-height: 100vh;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 15% 20%, #001eff 0%, transparent 30%),
+        radial-gradient(circle at 85% 20%, #6200ff 0%, transparent 30%),
+        radial-gradient(circle at 50% 100%, #1900ff 0%, transparent 35%),
+        #020617;
+}
+
+
+/* HEADER */
+
+.top-header {
+    max-width: 1500px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 45px;
+    flex-wrap: wrap;
+
+    padding: 10px 20px 30px;
+}
+
+.tech-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-weight: bold;
+}
+
+.tech-logo i {
+    font-size: 55px;
+}
+
+.tech-logo span {
+    font-size: 14px;
+}
+
+.html i {
+    color: #ff5722;
+}
+
+.css i {
+    color: #2196f3;
+}
+
+.js i {
+    color: #ffd600;
+}
+
+.php i {
+    color: #b388ff;
+}
+
+.mysql-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    color: #ffb300;
+}
+
+.mysql-logo i {
+    color: #29b6f6;
+}
+
+.brand {
+    margin-left: auto;
+
+    font-size: 42px;
+    font-weight: 900;
+    font-style: italic;
+
+    text-align: center;
+
+    text-shadow:
+        0 0 10px #7c00ff,
+        0 0 25px #8b00ff;
+}
+
+.brand span {
+    display: block;
+
+    color: #d500ff;
+    font-size: 20px;
+}
+
+
+/* MAIN */
+
+.main-container {
+    max-width: 1500px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 25px;
+}
+
+
+/* CODE */
+
+.code-window {
+    min-height: 750px;
+
+    border: 2px solid #008cff;
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    background: rgba(2, 8, 25, 0.92);
+
+    box-shadow:
+        0 0 15px #006eff,
+        0 0 35px rgba(0, 100, 255, 0.5);
+}
+
+.window-header {
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+
+    background: #10182c;
+
+    border-bottom: 1px solid #26365f;
+}
+
+.window-buttons {
+    display: flex;
+    gap: 10px;
+    padding: 0 20px;
+}
+
+.window-buttons span {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+}
+
+.red {
+    background: #ff3b30;
+}
+
+.yellow {
+    background: #ffd60a;
+}
+
+.green {
+    background: #32d74b;
+}
+
+.file-tab {
+    height: 60px;
+
+    padding: 0 25px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    background: #172243;
+
+    border-radius: 12px 12px 0 0;
+
+    color: white;
+}
+
+.file-tab i {
+    color: #b388ff;
+}
+
+.plus {
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+.code-content {
+    height: 690px;
+
+    overflow: auto;
+
+    padding: 25px;
+}
+
+pre {
+    font-family: "Courier New", monospace;
+    font-size: 15px;
+    line-height: 1.55;
+
+    color: #d6e1ff;
+}
+
+.pink {
+    color: #ff38d1;
+}
+
+.cyan {
+    color: #00eaff;
+}
+
+.yellow {
+    color: #ffe600;
+}
+
+.purple {
+    color: #c77dff;
+}
+
+
+/* AUTH */
+
+.auth-area {
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.auth-card,
+.register-card {
+    padding: 30px;
+
+    border: 2px solid #008cff;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(5, 20, 70, 0.95),
+            rgba(30, 5, 70, 0.95)
+        );
+
+    box-shadow:
+        0 0 15px #006eff,
+        0 0 30px rgba(140, 0, 255, 0.4);
+}
+
+
+/* ACCOUNT HEADER */
+
+.account-header {
+    display: flex;
+    align-items: center;
+
+    gap: 25px;
+
+    margin-bottom: 25px;
+}
+
+.user-icon {
+    display: flex;
+    align-items: center;
+
+    color: #00aaff;
+
+    font-size: 65px;
+
+    text-shadow: 0 0 20px #009dff;
+}
+
+.user-icon i:nth-child(2) {
+    color: #c400ff;
+    font-size: 48px;
+
+    margin-left: -15px;
+}
+
+.account-header h1 {
+    font-size: 34px;
+}
+
+.account-header p {
+    margin-top: 8px;
+    color: #c8d0e8;
+}
+
+
+/* TABS */
+
+.tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+
+    margin-bottom: 20px;
+}
+
+.tab {
+    border: 1px solid #555;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    color: white;
+
+    background: #101735;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.tab.active {
+    background:
+        linear-gradient(
+            90deg,
+            #007cff,
+            #00aaff
+        );
+
+    box-shadow:
+        0 0 15px #008cff;
+}
+
+
+/* INPUTS */
+
+.input-box {
+    height: 56px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 0 18px;
+
+    margin-bottom: 14px;
+
+    border: 1px solid #5966a0;
+
+    border-radius: 12px;
+
+    background: rgba(5, 10, 35, 0.75);
+
+    transition: 0.3s;
+}
+
+.input-box:focus-within {
+    border-color: #00aaff;
+
+    box-shadow:
+        0 0 12px rgba(0, 160, 255, 0.6);
+}
+
+.input-box i {
+    color: white;
+}
+
+.input-box input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 16px;
+}
+
+.input-box input::placeholder {
+    color: #c0c5d8;
+}
+
+.password-toggle {
+    cursor: pointer;
+}
+
+
+/* BUTTON */
+
+.main-button,
+.register-button {
+    width: 100%;
+
+    height: 58px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    color: white;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.main-button {
+    background:
+        linear-gradient(
+            90deg,
+            #0077ff,
+            #00aaff
+        );
+
+    box-shadow:
+        0 0 15px rgba(0, 150, 255, 0.6);
+}
+
+.register-button {
+    background:
+        linear-gradient(
+            90deg,
+            #702cff,
+            #f000ff
+        );
+
+    box-shadow:
+        0 0 15px rgba(200, 0, 255, 0.6);
+}
+
+.main-button:hover,
+.register-button:hover,
+.social:hover {
+    transform: translateY(-2px);
+
+    filter: brightness(1.15);
+}
+
+
+/* OR */
+
+.or {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    margin: 20px 0;
+
+    color: white;
+
+    justify-content: center;
+}
+
+.or span {
+    height: 1px;
+    flex: 1;
+
+    background: #414c77;
+}
+
+
+/* SOCIAL */
+
+.social {
+    width: 100%;
+
+    height: 52px;
+
+    margin-bottom: 10px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    color: #111;
+
+    transition: 0.3s;
+}
+
+.google {
+    background: white;
+}
+
+.facebook {
+    background: #315dcc;
+    color: white;
+}
+
+.social i {
+    margin-right: 10px;
+
+    font-size: 20px;
+}
+
+
+/* REGISTER */
+
+.register-card {
+    border-color: #7e00ff;
+
+    box-shadow:
+        0 0 15px #7200ff,
+        0 0 30px rgba(180, 0, 255, 0.4);
+}
+
+.register-title {
+    text-align: center;
+
+    margin-bottom: 20px;
+}
+
+.register-title h2 {
+    font-size: 28px;
+}
+
+.register-title p {
+    margin-top: 5px;
+    color: #c8c8dc;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+
+    .main-container {
+        grid-template-columns: 1fr;
+    }
+
+    .code-window {
+        display: none;
+    }
+
+    .auth-area {
+        max-width: 650px;
+        width: 100%;
+
+        margin: auto;
+    }
+
+    .brand {
+        margin-left: 0;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .background {
+        padding: 12px;
+    }
+
+    .top-header {
+        gap: 20px;
+    }
+
+    .tech-logo i {
+        font-size: 35px;
+    }
+
+    .mysql-logo {
+        font-size: 20px;
+    }
+
+    .brand {
+        font-size: 30px;
+    }
+
+    .brand span {
+        font-size: 15px;
+    }
+
+    .auth-card,
+    .register-card {
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .account-header h1 {
+        font-size: 25px;
+    }
+
+    .account-header p {
+        font-size: 13px;
+    }
+
+    .user-icon {
+        font-size: 45px;
+    }
+
+    .user-icon i:nth-child(2) {
+        font-size: 35px;
+    }
+          }
